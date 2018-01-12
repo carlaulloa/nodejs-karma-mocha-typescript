@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noStrictGenericChecks": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "exclude": [
+    "./test",
+    "node_modules"
+  ]
+}
