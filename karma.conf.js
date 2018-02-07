@@ -1,7 +1,8 @@
 module.exports = function (config) {
   config.set({
     files: [
-      { pattern: "src/**/*.ts" },
+      "src/**/*.ts",
+      "test/**/*.ts"
     ],
     frameworks: ['mocha', 'chai', 'karma-typescript'],
     plugins: [
@@ -19,10 +20,10 @@ module.exports = function (config) {
     },
     karmaTypescriptConfig: {
       bundlerOptions: {
-          entrypoints: /\.spec\.ts$/
+        entrypoints: /\.spec\.ts$/
       },
       compilerOptions: {
-          lib: ["es2015"]
+        lib: ["es2015"]
       }
     },
     reporters: ['spec', 'coverage', 'html', 'mocha'],
@@ -41,6 +42,12 @@ module.exports = function (config) {
       groupSuites: true,
       useCompactStyle: true,
       useLegacyStyle: true
+    },
+    client: {
+      mocha: {
+        ui: 'bdd',
+        timeout: '5000'
+      }
     },
     port: 9876,
     colors: true,

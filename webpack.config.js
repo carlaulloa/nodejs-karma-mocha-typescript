@@ -7,10 +7,6 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = function (options, webpackOptions) {
   options = options || {};
 
-  if (options.aot) {
-    console.log(`Running build for ${options.client ? 'client' : 'server'} with AoT Compilation`)
-  }
-
   const serverConfig = webpackMerge({}, commonPartial, serverPartial, {
     entry: serverPartial.entry, // Temporary
     plugins: [
@@ -20,16 +16,7 @@ module.exports = function (options, webpackOptions) {
     })]
   });
 
-  const configs = [];
-  if (!options.aot) {
-    configs.push(serverConfig);
-
-  } else if (options.client) {
-    configs.push(clientConfig);
-
-  } else if (options.server) {
-    configs.push(serverConfig);
-  }
-
-  return configs;
+ /* const configs = [];
+  configs.push(serverConfig);*/
+  return serverConfig;
 }
